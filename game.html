@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cenco-Play | ¡Gana Puntos Perú!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0074FF, #002882);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .game-container {
+            max-width: 800px;
+            width: 90%;
+            background: white;
+            border-radius: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="game-container">
+        <div id="game-view" class="p-5 text-center">
+            
+            <div id="game-start">
+                <i class="bi bi-controller display-1 text-cenco-blue mb-4"></i>
+                <h2 class="fw-bold text-cenco-navy mb-4">Cenco-Trivia Perú</h2>
+                <p class="mb-5 text-muted">Demuestra tus conocimientos y suma puntos para tu Dashboard.</p>
+                <button class="btn btn-cenco btn-lg px-5" onclick="startGame()">¡Jugar!</button>
+                <div class="mt-4">
+                    <a href="index.html" class="text-decoration-none text-muted small"><i class="bi bi-arrow-left me-1"></i>Volver al inicio</a>
+                </div>
+            </div>
+
+            <div id="game-quiz" class="d-none">
+                <div class="d-flex justify-content-between mb-4">
+                    <span class="fw-bold text-muted" id="q-counter">Pregunta 1/3</span>
+                    <span class="fw-bold text-cenco-blue" id="q-score">0 pts</span>
+                </div>
+                <h3 id="q-text" class="fw-bold mb-5">...</h3>
+                <div id="q-options" class="row g-3"></div>
+            </div>
+
+            <div id="game-results" class="d-none">
+                <div class="mb-4">
+                    <i class="bi bi-trophy text-warning animate-bounce" style="font-size: 5rem;"></i>
+                </div>
+                <h2 class="fw-bold text-cenco-navy mb-2">¡Ruta Completada!</h2>
+                <div class="display-1 fw-bold text-cenco-blue mb-2" id="res-score">0</div>
+                <p class="text-muted mb-4" id="best-score-msg"></p>
+                
+                <div id="redeem-msg" class="d-none mb-4"></div>
+
+                <div class="bg-light p-4 rounded-4 mb-4 text-start">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-list-ol me-2"></i>Mejores Puntajes</h5>
+                    <div id="leaderboard-list">
+                        <!-- Se llena dinámicamente -->
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center gap-3">
+                    <button class="btn btn-outline-primary px-4 rounded-pill fw-bold" onclick="location.reload()">Jugar de nuevo</button>
+                    <a href="index.html" class="btn btn-cenco px-4 rounded-pill fw-bold">Ir al Dashboard</a>
+                </div>
+            </div>
+
+        </div>
+        <!-- Tricolor Bar at Bottom -->
+        <div class="huincha-tricolor" style="height: 15px;">
+            <div class="huincha-blue"></div>
+            <div class="huincha-light-blue"></div>
+            <div class="huincha-orange"></div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+    <script src="boxi.js"></script>
+
+</body>
+</html>
